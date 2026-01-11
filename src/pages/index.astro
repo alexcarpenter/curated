@@ -2,7 +2,10 @@
 import Layout from "@/layouts/layout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-const items = await getCollection("items");
+const collection = await getCollection("items");
+const items = collection.sort(
+  (a, b) => b.data.published.getTime() - a.data.published.getTime()
+);
 ---
 
 <Layout>
