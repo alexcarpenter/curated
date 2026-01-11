@@ -2,7 +2,10 @@
 import Layout from "@/layouts/layout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-const items = await getCollection("items");
+const collection = await getCollection("items");
+const items = collection.sort(
+  (a, b) => b.data.published.getTime() - a.data.published.getTime()
+);
 ---
 
 <Layout>
@@ -49,8 +52,10 @@ const items = await getCollection("items");
     aspect-ratio: 1 / 1;
     background-color: #fff;
 
-    &:hover {
-      outline: 1.5px solid oklch(54.6% 0.245 262.881);
+    @media (hover: hover) {
+      &:hover {
+        outline: 1.5px solid oklch(54.6% 0.245 262.881);
+      }
     }
   }
 
