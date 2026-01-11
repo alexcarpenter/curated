@@ -52,8 +52,10 @@ const items = collection.sort(
     aspect-ratio: 1 / 1;
     background-color: #fff;
 
-    &:hover {
-      outline: 1.5px solid oklch(54.6% 0.245 262.881);
+    @media (hover: hover) {
+      &:hover {
+        outline: 1.5px solid oklch(54.6% 0.245 262.881);
+      }
     }
   }
 
