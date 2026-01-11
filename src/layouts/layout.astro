@@ -1,5 +1,10 @@
 ---
-
+const META = {
+  title: "Curated by Alex Carpenter",
+  description:
+    "Weekly curated items including design inspiration, tools, and resources.",
+  image: "/og.jpg",
+};
 ---
 
 <html lang="en">
@@ -8,7 +13,16 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Curated by Alex Carpenter</title>
+    <title>{META.title}</title>
+    <meta name="title" content={META.title} />
+    <meta name="description" content={META.description} />
+    <meta property="og:title" content={META.title} />
+    <meta property="og:description" content={META.description} />
+    <meta property="og:image" content={new URL(META.image, Astro.url)} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={META.title} />
+    <meta property="twitter:description" content={META.description} />
+    <meta property="twitter:image" content={new URL(META.image, Astro.url)} />
   </head>
   <body>
     <slot />
