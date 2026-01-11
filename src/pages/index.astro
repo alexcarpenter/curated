@@ -1,16 +1,72 @@
 ---
-
+import Layout from "@/layouts/layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+const items = await getCollection("items");
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <ul>
+    {
+      items.map((item) => {
+        return (
+          <li>
+            <a href={item.data.link} target="_blank" rel="noopener noreferrer">
+              <Image
+                src={item.data.thumbnail}
+                width={1200}
+                height={1200}
+                alt={item.data.name}
+              />
+            </a>
+            <p>{item.id}.jpg</p>
+          </li>
+        );
+      })
+    }
+  </ul>
+</Layout>
+
+<style>
+  ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+
+    @media (min-width: 728px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  li {
+    position: relative;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+
+    &:hover {
+      outline: 1.5px solid oklch(54.6% 0.245 262.881);
+    }
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    line-height: calc(1 / 0.75);
+    font-weight: 400;
+    color: oklch(55.1% 0.027 264.364);
+  }
+</style>
