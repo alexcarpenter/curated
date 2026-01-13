@@ -4,7 +4,9 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const collection = await getCollection("items");
 const items = collection
-  .filter((item) => item.data.status === "featured")
+  .filter((item) =>
+    import.meta.env.PROD ? item.data.status === "featured" : true
+  )
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 ---
 
