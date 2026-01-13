@@ -3,9 +3,9 @@ import Layout from "@/layouts/layout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const collection = await getCollection("items");
-const items = collection.sort(
-  (a, b) => b.data.published.getTime() - a.data.published.getTime()
-);
+const items = collection
+  .filter((item) => item.data.status === "featured")
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 ---
 
 <Layout>
@@ -54,7 +54,7 @@ const items = collection.sort(
 
     @media (hover: hover) {
       &:hover {
-        outline: 1.5px solid oklch(54.6% 0.245 262.881);
+        outline: 1.5px solid var(--accent);
       }
     }
   }
@@ -72,6 +72,6 @@ const items = collection.sort(
     font-size: 0.75rem;
     line-height: calc(1 / 0.75);
     font-weight: 400;
-    color: oklch(55.1% 0.027 264.364);
+    color: var(--accent);
   }
 </style>
