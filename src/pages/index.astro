@@ -1,19 +1,29 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-const collection = await getCollection("items");
-const items = collection
-  .filter((item) =>
-    import.meta.env.PROD ? item.data.status === "featured" : true
+import { getCollection, getEntries } from "astro:content";
+
+const collection = await getCollection("issues");
+const issues = collection
+  .filter((issue) =>
+    import.meta.env.PROD ? issue.data.status === "published" : true
   )
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const allItems = await Promise.all(
+  issues.map(async (issue) => {
+    const items = await getEntries(issue.data.items);
+    return items;
+  })
+);
+
+const flattenedItems = allItems.flat();
 ---
 
 <Layout>
   <ul>
     {
-      items.map((item) => {
+      flattenedItems.map((item) => {
         return (
           <li>
             <a href={item.data.link} target="_blank" rel="noopener noreferrer">
