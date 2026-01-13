@@ -1,4 +1,4 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
@@ -11,11 +11,17 @@ const items = defineCollection({
       published: z.coerce.date(),
       updated: z.coerce.date().optional(),
       link: z.string().url(),
-      status: z
-        .enum(["draft", "published", "featured"])
-        .optional()
-        .default("draft"),
     }),
 });
 
-export const collections = { items };
+const issues = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/data/issues" }),
+  schema: () =>
+    z.object({
+      status: z.enum(["published", "draft"]).default("draft"),
+      published: z.coerce.date(),
+      items: z.array(reference("items")),
+    }),
+});
+
+export const collections = { items, issues };
