@@ -3,9 +3,9 @@ import Layout from "@/layouts/layout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const collection = await getCollection("items");
-const items = collection.sort(
-  (a, b) => b.data.published.getTime() - a.data.published.getTime()
-);
+const items = collection
+  .filter((item) => item.data.status === "featured")
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 ---
 
 <Layout>

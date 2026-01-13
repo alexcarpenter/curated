@@ -11,6 +11,10 @@ const items = defineCollection({
       published: z.coerce.date(),
       updated: z.coerce.date().optional(),
       link: z.string().url(),
+      status: z
+        .enum(["draft", "published", "featured"])
+        .optional()
+        .default("draft"),
     }),
 });
 
