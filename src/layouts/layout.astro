@@ -2,15 +2,16 @@
 type Props = {
   title?: string;
   description?: string;
+  image?: string;
 };
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
 
 const META = {
   title: title || "Curated by Alex Carpenter",
   description:
     description ||
     "Weekly curated items including design inspiration, tools, and resources.",
-  image: "/og.jpg",
+  image: image || "/og.jpg",
 };
 ---
 

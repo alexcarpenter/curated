@@ -1,5 +1,6 @@
 ---
 title: Junk Drawer
+image: "/og-junk-drawer.jpg"
 published: 2026-01-14T07:38:31-0500
 items:
   - wera-kraftform-kompact-20-7-in-1-bitholding-screwdriver
