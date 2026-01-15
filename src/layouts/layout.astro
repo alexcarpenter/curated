@@ -1,7 +1,14 @@
 ---
+type Props = {
+  title?: string;
+  description?: string;
+};
+const { title, description } = Astro.props;
+
 const META = {
-  title: "Curated by Alex Carpenter",
+  title: title || "Curated by Alex Carpenter",
   description:
+    description ||
     "Weekly curated items including design inspiration, tools, and resources.",
   image: "/og.jpg",
 };
@@ -33,6 +40,7 @@ const META = {
   :root {
     --accent: oklch(0.452 0.313214 264.052);
     --gray-500: oklch(55.1% 0.027 264.364);
+    --gray-800: oklch(27.8% 0.033 256.848);
   }
 
   * {
@@ -49,6 +57,8 @@ const META = {
     min-height: 100%;
     padding: 1rem;
     font-family: system-ui, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.5;
     background-color: oklch(96.7% 0.003 264.542);
   }
 </style>

@@ -1,0 +1,63 @@
+---
+import { getCollection, getEntries, render } from "astro:content";
+import Layout from "@/layouts/layout.astro";
+import Items from "@/components/items.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("posts");
+  return entries.map((entry) => {
+    return {
+      params: { slug: entry.id },
+      props: entry,
+    };
+  });
+}
+
+const entry = Astro.props;
+// const { Content } = await render(entry);
+const items = await getEntries(entry.data.items);
+---
+
+<Layout
+  title={`Collections - ${entry.data.title}`}
+  description={entry.data.description}
+>
+  <nav>
+    <ol>
+      <li><a href="/" aria-label="Home">~</a></li>
+      <li>collections</li>
+      <!-- prettier-ignore -->
+      <li aria-current="page"><h1 aria-label={entry.data.title}>{entry.id}</h1></li>
+    </ol>
+  </nav>
+  <Items entries={items} />
+</Layout>
+
+<style>
+  nav {
+    margin-block-end: 1rem;
+    color: var(--gray-500);
+    font-weight: 600;
+  }
+
+  ol {
+    list-style: none;
+    display: flex;
+  }
+
+  li:not(:first-of-type)::before {
+    content: "/";
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  h1 {
+    display: inline;
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--gray-800);
+  }
+</style>

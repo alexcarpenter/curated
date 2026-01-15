@@ -24,4 +24,15 @@ const issues = defineCollection({
     }),
 });
 
-export const collections = { items, issues };
+const posts = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/data/posts" }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      published: z.coerce.date(),
+      items: z.array(reference("items")),
+    }),
+});
+
+export const collections = { items, issues, posts };
