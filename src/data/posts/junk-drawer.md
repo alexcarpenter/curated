@@ -5,6 +5,7 @@ items:
   - wera-kraftform-kompact-20-7-in-1-bitholding-screwdriver
   - klein-tools-electrician-scissors
   - knipex-cobra-water-pump-pliers
+  - stanley-powerlock-tape-12ft
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum saepe rem
