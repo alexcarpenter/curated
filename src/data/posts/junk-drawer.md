@@ -6,6 +6,7 @@ items:
   - klein-tools-electrician-scissors
   - knipex-cobra-water-pump-pliers
   - stanley-powerlock-tape-12ft
+  - pica-dry-longlife-automatic-pencil-3030
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum saepe rem
