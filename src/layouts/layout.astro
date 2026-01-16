@@ -17,6 +17,12 @@ const META = {
 
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
@@ -57,8 +63,11 @@ const META = {
   body {
     min-height: 100%;
     padding: 1rem;
-    font-family: system-ui, sans-serif;
-    font-size: 0.875rem;
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.75rem;
     line-height: 1.5;
     background-color: oklch(96.7% 0.003 264.542);
   }
