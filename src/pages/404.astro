@@ -1,0 +1,40 @@
+---
+import Layout from "@/layouts/layout.astro";
+---
+
+<Layout title="404" description="Page not found">
+  <nav>
+    <ol>
+      <li><a href="/" aria-label="Home">~</a></li>
+      <!-- prettier-ignore -->
+      <li aria-current="page">404</li>
+    </ol>
+  </nav>
+</Layout>
+
+<style>
+  nav {
+    margin-block-end: 1rem;
+    color: var(--gray-500);
+  }
+
+  ol {
+    list-style: none;
+    display: flex;
+  }
+
+  li:not(:first-of-type)::before {
+    content: "/";
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  h1 {
+    display: inline;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+</style>

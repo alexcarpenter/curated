@@ -50,11 +50,16 @@ const { entries } = Astro.props;
     position: relative;
     aspect-ratio: 1 / 1;
     background-color: #fff;
+    outline: none;
 
     @media (hover: hover) {
       &:hover {
         outline: 1.5px solid var(--accent);
       }
+    }
+
+    &:focus-visible {
+      outline: 1.5px solid var(--accent);
     }
   }
 
