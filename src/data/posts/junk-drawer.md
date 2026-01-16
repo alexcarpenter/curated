@@ -9,14 +9,5 @@ items:
   - knipex-cobra-water-pump-pliers
   - stanley-powerlock-tape-12ft
   - pica-dry-longlife-automatic-pencil-3030
+  - scotch-greener-masking-tape
 ---
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum saepe rem
-odio deleniti, nobis vitae consectetur recusandae aspernatur laborum
-repudiandae autem sit magnam fuga, atque, est quos quidem consequatur
-voluptates.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum saepe rem
-odio deleniti, nobis vitae consectetur recusandae aspernatur laborum
-repudiandae autem sit magnam fuga, atque, est quos quidem consequatur
-voluptates.
