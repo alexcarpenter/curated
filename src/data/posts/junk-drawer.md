@@ -10,4 +10,5 @@ items:
   - stanley-powerlock-tape-12ft
   - pica-dry-longlife-automatic-pencil-3030
   - scotch-greener-masking-tape
+  - wera-5133164001-950-9-hex-plus-multicolour-2-l-key-set
 ---
