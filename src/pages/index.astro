@@ -6,7 +6,7 @@ import { getCollection, getEntries } from "astro:content";
 const collection = await getCollection("issues");
 const issues = collection
   .filter((issue) =>
-    import.meta.env.PROD ? issue.data.status === "published" : true
+    import.meta.env.PROD ? issue.data.status === "published" : true,
   )
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
@@ -14,7 +14,7 @@ const allItems = await Promise.all(
   issues.map(async (issue) => {
     const items = await getEntries(issue.data.items);
     return items;
-  })
+  }),
 );
 
 const flattenedItems = allItems.flat();

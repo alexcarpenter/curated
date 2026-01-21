@@ -2,7 +2,7 @@ import { defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const CATEGORIES = ["footwear", "tools"] as const;
+const CATEGORIES = ["coffee", "footwear", "tools"] as const;
 
 const items = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/data/items" }),
