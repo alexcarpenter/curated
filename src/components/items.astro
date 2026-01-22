@@ -50,7 +50,7 @@ const { entries } = Astro.props;
     display: block;
     position: relative;
     aspect-ratio: 1 / 1;
-    background-color: #fff;
+    background-color: var(--surface);
     outline: none;
 
     @media (hover: hover) {
@@ -76,6 +76,5 @@ const { entries } = Astro.props;
 
   p {
     margin-top: 0.5rem;
-    color: var(--gray-500);
   }
 </style>
