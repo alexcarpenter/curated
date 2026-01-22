@@ -40,7 +40,7 @@ const META = {
   </head>
   <body>
     <slot />
-    <footer class="footer">
+    <footer>
       <svg aria-label="~/curated" fill="none" viewBox="0 0 935 186"
         ><path
           fill="currentColor"
@@ -73,7 +73,8 @@ const META = {
     --foreground: light-dark(var(--gray-500), var(--gray-400));
     --surface: light-dark(white, var(--gray-900));
 
-    color-scheme: light dark;
+    /* Enable once dark images are added */
+    /* color-scheme: light dark; */
   }
 
   * {
@@ -104,7 +105,7 @@ const META = {
 </style>
 
 <style>
-  .footer {
+  footer {
     margin-block-start: auto;
     padding-block-start: 1rem;
     color: var(--surface);
