@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntries, render } from "astro:content";
+import { getCollection, getEntries } from "astro:content";
 import Layout from "@/layouts/layout.astro";
 import Items from "@/components/items.astro";
 
@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 }
 
 const entry = Astro.props;
-// const { Content } = await render(entry);
 const items = await getEntries(entry.data.items);
 ---
 

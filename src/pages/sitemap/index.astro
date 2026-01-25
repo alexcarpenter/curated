@@ -1,0 +1,35 @@
+---
+import Layout from "@/layouts/layout.astro";
+import { getCollection } from "astro:content";
+const collections = await getCollection("posts");
+---
+
+<Layout title="Sitemap">
+  <ul>
+    <li><a href="/" aria-label="Home">~/home.html</a></li>
+    {
+      collections.map((collection) => (
+        <li>
+          <a href={`/collections/${collection.id}`}>
+            ~/collections/{collection.id}.html
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style>
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>

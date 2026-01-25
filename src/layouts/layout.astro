@@ -54,6 +54,15 @@ const META = {
   </body>
 </html>
 
+<script>
+  document.addEventListener("keydown", function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      window.location.href = "/sitemap";
+    }
+  });
+</script>
+
 <style is:global>
   :root {
     --accent: oklch(0.452 0.313214 264.052);
