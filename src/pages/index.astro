@@ -1,5 +1,6 @@
 ---
 import Items from "@/components/items.astro";
+import Navigation from "@/components/navigation.astro";
 import Layout from "@/layouts/layout.astro";
 import { getCollection, getEntries } from "astro:content";
 
@@ -21,5 +22,6 @@ const flattenedItems = allItems.flat();
 ---
 
 <Layout>
+  <Navigation />
   <Items entries={flattenedItems} />
 </Layout>

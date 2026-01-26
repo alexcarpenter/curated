@@ -2,6 +2,7 @@
 import { getCollection, getEntries } from "astro:content";
 import Layout from "@/layouts/layout.astro";
 import Items from "@/components/items.astro";
+import Navigation from "@/components/navigation.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("posts");
@@ -22,39 +23,16 @@ const items = await getEntries(entry.data.items);
   description={entry.data.description}
   image={entry.data.image}
 >
-  <nav>
-    <ol>
-      <li><a href="/" aria-label="Home">~</a></li>
-      <li>collections</li>
-      <!-- prettier-ignore -->
-      <li aria-current="page"><h1 aria-label={entry.data.title}>{entry.id}</h1></li>
-    </ol>
-  </nav>
+  <Navigation
+    items={[
+      {
+        label: "collections",
+      },
+      {
+        label: entry.id,
+        pathname: `/collections/${entry.id}`,
+      },
+    ]}
+  />
   <Items entries={items} />
 </Layout>
-
-<style>
-  nav {
-    margin-block-end: 1rem;
-  }
-
-  ol {
-    list-style: none;
-    display: flex;
-  }
-
-  li:not(:first-of-type)::before {
-    content: "/";
-  }
-
-  a {
-    color: currentColor;
-    text-decoration: none;
-  }
-
-  h1 {
-    display: inline;
-    font-size: inherit;
-    font-weight: inherit;
-  }
-</style>

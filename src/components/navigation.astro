@@ -1,0 +1,57 @@
+---
+type Item = {
+  label: string;
+  pathname?: string;
+};
+
+type Props = {
+  items?: Item[];
+};
+
+const { items = [] } = Astro.props;
+const hasItems = items.length > 0;
+const lastItem = items[items.length - 1];
+---
+
+<nav aria-label="Navigation">
+  <ol>
+    <li>~</li>
+    <!- prettier-ignore ->
+    <li><a href="/">home{hasItems ? "" : ".html"}</a></li>
+    {
+      items.map((item) => {
+        const isLast = item === lastItem;
+        const displayLabel = `${item.label}${isLast ? ".html" : ""}`;
+
+        if (item.pathname) {
+          return (
+            <!- prettier-ignore ->
+            <li><a href={item.pathname} aria-current={isLast ? "page" : undefined}>{displayLabel}</a></li>
+          )
+        }
+
+        return <li>{displayLabel}</li>
+      })
+    }
+  </ol>
+</nav>
+
+<style>
+  nav {
+    margin-block-end: 1rem;
+  }
+
+  ol {
+    list-style: none;
+    display: flex;
+  }
+
+  li:not(:first-of-type)::before {
+    content: "/";
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+</style>
