@@ -7,4 +7,5 @@ items:
   - hds-systems-edc-tactical-flashlight
   - chris-reeve-small-sebenza-31
   - bellroy-3-card-phone-case
+  - the-james-brand-midland
 ---
