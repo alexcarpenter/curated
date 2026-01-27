@@ -2,6 +2,7 @@
 type Item = {
   label: string;
   pathname?: string;
+  extension?: string
 };
 
 type Props = {
@@ -21,7 +22,8 @@ const lastItem = items[items.length - 1];
     {
       items.map((item) => {
         const isLast = item === lastItem;
-        const displayLabel = `${item.label}${isLast ? ".html" : ""}`;
+        const extension = item.extension ?? '.html'
+        const displayLabel = `${item.label}${isLast ? extension : ""}`;
 
         if (item.pathname) {
           return (
