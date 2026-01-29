@@ -19,9 +19,43 @@ const allItems = await Promise.all(
 );
 
 const flattenedItems = allItems.flat();
+
+const principals = [
+  "Good design is innovative",
+  "Good design makes a product useful",
+  "Good design is aesthetic",
+  "Good design makes a product understandable",
+  "Good design is unobtrusive",
+  "Good design is honest",
+  "Good design is long-lasting",
+  "Good design is thorough down to the last detail",
+  "Good design is environmentally friendly",
+  "Good design is as little design as possible",
+];
+
+const principal = principals[Math.floor(Math.random() * principals.length)];
 ---
 
 <Layout>
-  <Navigation />
+  <header>
+    <Navigation />
+    <p>“{principal}” - Rams</p>
+  </header>
   <Items entries={flattenedItems} />
 </Layout>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    p {
+      display: none;
+
+      @media (min-width: 40rem) {
+        display: block;
+      }
+    }
+  }
+</style>
