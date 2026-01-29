@@ -8,4 +8,5 @@ items:
   - chris-reeve-small-sebenza-31
   - bellroy-3-card-phone-case
   - the-james-brand-midland
+  - yubikey-5c-nfc
 ---
