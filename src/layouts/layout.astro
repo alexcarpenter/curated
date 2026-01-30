@@ -1,4 +1,6 @@
 ---
+import Island from "@/components/island.astro";
+
 type Props = {
   title?: string;
   description?: string;
@@ -39,7 +41,10 @@ const META = {
     <meta property="twitter:image" content={new URL(META.image, Astro.url)} />
   </head>
   <body>
-    <slot />
+    <main>
+      <slot />
+      <Island />
+    </main>
     <footer>
       <svg aria-label="~/curated" fill="none" viewBox="0 0 935 186"
         ><path
@@ -115,6 +120,11 @@ const META = {
 </style>
 
 <style>
+  main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
   footer {
     margin-block-start: auto;
     padding-block-start: 1rem;

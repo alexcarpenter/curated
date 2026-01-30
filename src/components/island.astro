@@ -1,0 +1,45 @@
+---
+
+---
+
+<button class="trigger">
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="1"></circle>
+    <circle cx="19" cy="12" r="1"></circle>
+    <circle cx="5" cy="12" r="1"></circle>
+  </svg>
+</button>
+
+<style>
+  .trigger {
+    --size: 3rem;
+    position: fixed;
+    bottom: 2rem;
+    margin-inline: auto;
+    inset-inline: 0;
+    appearance: none;
+    border: 0;
+    place-content: center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+    background-color: rgb(0 0 0 / 0.25);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    pointer-events: auto;
+
+    svg {
+      --size: 1.5rem;
+      width: var(--size);
+      height: var(--size);
+      color: #fff;
+    }
+  }
+</style>
