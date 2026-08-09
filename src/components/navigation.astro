@@ -17,7 +17,6 @@ const lastItem = items[items.length - 1];
 <nav aria-label="Navigation">
   <ol>
     <li>~</li>
-    <!- prettier-ignore ->
     <li><a href="/">home{hasItems ? "" : ".html"}</a></li>
     {
       items.map((item) => {
@@ -27,7 +26,6 @@ const lastItem = items[items.length - 1];
 
         if (item.pathname) {
           return (
-            <!- prettier-ignore ->
             <li><a href={item.pathname} aria-current={isLast ? "page" : undefined}>{displayLabel}</a></li>
           )
         }
