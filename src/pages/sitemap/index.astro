@@ -7,11 +7,11 @@ const collections = await getCollection("posts");
 <Layout title="Sitemap">
   <ul>
     <li><a href="/" aria-label="Home">~/home.html</a></li>
-    <li><a href="/readme" aria-label="readme">~/home/readme.md</a></li>
+    <li><a href="/readme/" aria-label="readme">~/home/readme.md</a></li>
     {
       collections.map((collection) => (
         <li>
-          <a href={`/collections/${collection.id}`}>
+          <a href={`/collections/${collection.id}/`}>
             ~/home/collections/{collection.id}.html
           </a>
         </li>

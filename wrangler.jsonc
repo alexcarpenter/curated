@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "curated",
+  "compatibility_date": "2026-11-26",
+  "workers_dev": false,
+  "routes": [{ "pattern": "curated.alexcarpenter.me", "custom_domain": true }],
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
